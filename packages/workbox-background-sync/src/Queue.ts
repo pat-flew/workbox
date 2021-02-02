@@ -113,6 +113,10 @@ class Queue {
     this._queueStore = new QueueStore(this._name);
 
     this._addSyncListener();
+    
+    (self as any).manualSync = () => {
+       this._onSync({queue: this});
+    }
   }
 
   /**
